@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvh4002eax0gd"
+path="res://.godot/imported/hit monster.wav-3825291022734133b35ba448ae43e52d.sample"
+
+[deps]
+
+source_file="res://AUDIO/hit monster.wav"
+dest_files=["res://.godot/imported/hit monster.wav-3825291022734133b35ba448ae43e52d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

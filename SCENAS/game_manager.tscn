@@ -1,0 +1,125 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3x1g51ygtnbn"]
+
+[ext_resource type="Script" path="res://SCRIPTS/GameManager.gd" id="1_iqlcj"]
+[ext_resource type="Texture2D" uid="uid://6xttxc5wdjn4" path="res://SPRITES/WPINICIO.png" id="2_8uwsq"]
+[ext_resource type="PackedScene" uid="uid://c6tbpc7x2kxuf" path="res://SCENAS/inicio.tscn" id="2_nk1yj"]
+[ext_resource type="PackedScene" uid="uid://qmfq35h20s1k" path="res://SCENAS/Nots.tscn" id="2_rrwaf"]
+[ext_resource type="PackedScene" uid="uid://bnox6v1ad8pdf" path="res://SCENAS/lnd_manager.tscn" id="3_7ji4p"]
+[ext_resource type="PackedScene" uid="uid://cj3insbl3gl0r" path="res://SCENAS/badEnd.tscn" id="5_kccsv"]
+[ext_resource type="PackedScene" uid="uid://c0oy7yieb5dck" path="res://SCENAS/goodEnd.tscn" id="6_6cgqf"]
+
+[sub_resource type="Animation" id="Animation_76dup"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tja5m"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_h6qg3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2po0"]
+_data = {
+"FadeIn": SubResource("Animation_76dup"),
+"FadeOut": SubResource("Animation_tja5m"),
+"RESET": SubResource("Animation_h6qg3")
+}
+
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("SceneManager", "TransitionAnimation")]
+script = ExtResource("1_iqlcj")
+SceneManager = NodePath("SceneManager")
+GameScenes = Array[PackedScene]([ExtResource("2_rrwaf"), ExtResource("2_nk1yj"), ExtResource("3_7ji4p"), ExtResource("5_kccsv"), ExtResource("6_6cgqf")])
+TransitionAnimation = NodePath("CanvasLayer/TextureRect/AnimationPlayer")
+
+[node name="SceneManager" type="Node2D" parent="."]
+
+[node name="Control" parent="SceneManager" instance=ExtResource("2_rrwaf")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8uwsq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect"]
+autoplay = "RESET"
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_v2po0")
+}

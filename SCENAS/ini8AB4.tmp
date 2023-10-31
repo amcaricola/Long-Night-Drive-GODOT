@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6tbpc7x2kxuf"]
+
+[ext_resource type="Script" path="res://SCRIPTS/Inicio.gd" id="1_h5yd7"]
+[ext_resource type="AudioStream" uid="uid://hrn8afpxoqjp" path="res://AUDIO/Chasing.mp3" id="2_1wo2v"]
+[ext_resource type="Texture2D" uid="uid://6xttxc5wdjn4" path="res://SPRITES/WPINICIO.png" id="3_3ddp8"]
+[ext_resource type="FontFile" uid="uid://cd6ao54auh1g3" path="res://Themes/Fonts/8bitOperatorPlus8-Regular.ttf" id="4_55csc"]
+
+[sub_resource type="Animation" id="Animation_6mk53"]
+resource_name = "Intro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2dm7"]
+_data = {
+"Intro": SubResource("Animation_6mk53")
+}
+
+[node name="Inicio" type="Node2D"]
+script = ExtResource("1_h5yd7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("2_1wo2v")
+pitch_scale = 0.4
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3ddp8")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 68.0
+offset_right = 664.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 68
+text = "LONG NIGHT DRIVE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_h2dm7")
+}
+
+[node name="Start" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

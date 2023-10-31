@@ -1,0 +1,11 @@
+res://PREFAB/SquareMonster.tscn::6448029fbdb3eaaf6d4bcbb356a22a7e::1698595822::res://.godot/exported/133200997/export-e2c651ccd836290a28b766cfa108f20b-SquareMonster.scn
+res://PREFAB/streets.tscn::81a958fe080965c1af76a3072d2ce7ed::1698453786::res://.godot/exported/133200997/export-2403ffbadbcb896e5dfc70c8bff27ba0-streets.scn
+res://PREFAB/TryAgainButton.tscn::1b5bd12f9b3693b1ca7673095271e259::1698619972::res://.godot/exported/133200997/export-dc5608832d3d75b6c8a2e40b52adbf48-TryAgainButton.scn
+res://SCENAS/badEnd.tscn::732d9ab9ee588ac4c6e6a8aadd4d3ffa::1698625422::res://.godot/exported/133200997/export-caf0265dc378257d853e02cd3b698f04-badEnd.scn
+res://SCENAS/game_manager.tscn::2209419da5abea9d275abd7e3997a5fa::1698621727::res://.godot/exported/133200997/export-5e4ec90e071859e04168d62c1468e4a7-game_manager.scn
+res://SCENAS/goodEnd.tscn::298d0a67ec4e920bb902d8f3d4192527::1698625666::res://.godot/exported/133200997/export-abf6ae9c532a9683eb69948dc8f389cd-goodEnd.scn
+res://SCENAS/inicio.tscn::aea1cfcfcccb4ad64b60547d135cbec3::1698621727::res://.godot/exported/133200997/export-27eb01f865fa3d483888603a4660005a-inicio.scn
+res://SCENAS/lnd_manager.tscn::c48ffe77220e277021830a9ccb46e597::1698631204::res://.godot/exported/133200997/export-9e0604721f5dbb1daec19900933a6dad-lnd_manager.scn
+res://SCENAS/Nots.tscn::d458250fde2800a081e7f32a7087b438::1698618659::res://.godot/exported/133200997/export-fb093eb30dfc7a36547bb877b2f05783-Nots.scn
+res://Themes/buttonStandar.tres::621f383fb7f68a1cff5ec14f9e0997ae::1698625666::res://.godot/exported/133200997/export-6949fa3e93e12b79096a5fe1502e6f85-buttonStandar.res
+res://Themes/GameTheme.tres::25fc038447bb3d048f998f6643ea3c95::1698625666::res://.godot/exported/133200997/export-ded23f7449d86bb698eba0f68a9daece-GameTheme.res

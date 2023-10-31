@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://so5akf8gstvk"]
+
+[ext_resource type="Texture2D" uid="uid://dx2fs141qvgpa" path="res://SPRITES/street-Sheet.png" id="1_7rcro"]
+
+[node name="streets" type="Node2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(7.51042, 7.51042)
+texture = ExtResource("1_7rcro")
+centered = false
+
+[node name="sprite2" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 240)
+scale = Vector2(7.51042, 7.51042)
+texture = ExtResource("1_7rcro")
+centered = false
+
+[node name="sprite3" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 480)
+scale = Vector2(7.51042, 7.51042)
+texture = ExtResource("1_7rcro")
+centered = false
+
+[node name="sprite4" type="Sprite2D" parent="."]
+position = Vector2(-1.69407e-21, 720)
+scale = Vector2(7.51042, 7.51042)
+texture = ExtResource("1_7rcro")
+centered = false
+
+[node name="sprite5" type="Sprite2D" parent="."]
+position = Vector2(9.09495e-13, 960)
+scale = Vector2(7.51042, 7.51042)
+texture = ExtResource("1_7rcro")
+centered = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(80, 1200)

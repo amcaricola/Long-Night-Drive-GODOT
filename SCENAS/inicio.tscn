@@ -1,0 +1,235 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6tbpc7x2kxuf"]
+
+[ext_resource type="Script" path="res://SCRIPTS/Inicio.gd" id="1_h5yd7"]
+[ext_resource type="AudioStream" uid="uid://hrn8afpxoqjp" path="res://AUDIO/Chasing.mp3" id="2_1wo2v"]
+[ext_resource type="Texture2D" uid="uid://6xttxc5wdjn4" path="res://SPRITES/WPINICIO.png" id="3_3ddp8"]
+[ext_resource type="FontFile" uid="uid://cd6ao54auh1g3" path="res://Themes/Fonts/8bitOperatorPlus8-Regular.ttf" id="4_55csc"]
+[ext_resource type="Theme" uid="uid://davtun2d0v5dw" path="res://Themes/GameTheme.tres" id="5_bcl0m"]
+[ext_resource type="Texture2D" uid="uid://7w3kavixqdjc" path="res://SPRITES/leftButtons.png" id="6_1l4t8"]
+[ext_resource type="Texture2D" uid="uid://b8g5iprgpa6la" path="res://SPRITES/rightButtons.png" id="7_6ybjr"]
+
+[sub_resource type="Animation" id="Animation_6mk53"]
+resource_name = "Intro"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 1.2, 1.3, 1.4, 1.6, 2.2, 2.5, 3.2, 3.3, 3.4, 3.5, 3.6, 3.8, 4.4, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ajmvy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2dm7"]
+_data = {
+"Intro": SubResource("Animation_6mk53"),
+"RESET": SubResource("Animation_ajmvy")
+}
+
+[node name="Inicio" type="Node2D"]
+script = ExtResource("1_h5yd7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("2_1wo2v")
+pitch_scale = 0.4
+
+[node name="Global" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Global"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3ddp8")
+
+[node name="MenuPrincipal" type="Control" parent="CanvasLayer/Global"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Global/MenuPrincipal"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 68.0
+offset_right = 664.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 68
+text = "LONG NIGHT DRIVE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Global/MenuPrincipal/Title"]
+reset_on_save = false
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_h2dm7")
+}
+
+[node name="ShortNight" type="Button" parent="CanvasLayer/Global/MenuPrincipal"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 400.0
+offset_right = 560.0
+offset_bottom = 520.0
+theme = ExtResource("5_bcl0m")
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 48
+text = "SHORT NIGHT"
+
+[node name="LongNight" type="Button" parent="CanvasLayer/Global/MenuPrincipal"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 600.0
+offset_right = 560.0
+offset_bottom = 720.0
+theme = ExtResource("5_bcl0m")
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 48
+text = "LONG NIGHT"
+
+[node name="instructions" type="Button" parent="CanvasLayer/Global/MenuPrincipal"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 800.0
+offset_right = 560.0
+offset_bottom = 920.0
+theme = ExtResource("5_bcl0m")
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 48
+text = "instructions"
+
+[node name="Instructions" type="Control" parent="CanvasLayer/Global"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Global/Instructions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Global/Instructions/Panel"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 68.0
+offset_right = 592.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 68
+text = "INSTRUCTIONS"
+
+[node name="left" type="Label" parent="CanvasLayer/Global/Instructions/Panel"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 160.0
+offset_right = 563.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 60
+text = "       Use
+
+
+
+To Move Left"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Global/Instructions/Panel/left"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 62.0
+offset_right = 183.0
+offset_bottom = 102.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_1l4t8")
+
+[node name="Right" type="Label" parent="CanvasLayer/Global/Instructions/Panel"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 419.0
+offset_right = 581.0
+offset_bottom = 649.0
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 60
+text = "       Use
+
+
+
+To Move Right"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Global/Instructions/Panel/Right"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 62.0
+offset_right = 183.0
+offset_bottom = 102.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_6ybjr")
+
+[node name="moretext" type="Label" parent="CanvasLayer/Global/Instructions/Panel"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 698.0
+offset_right = 592.0
+offset_bottom = 851.0
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 68
+text = "EVADE ALL 
+MONSTERS 
+ATACKS"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer/Global/Instructions/Panel"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 873.0
+offset_right = 560.0
+offset_bottom = 993.0
+theme = ExtResource("5_bcl0m")
+theme_override_fonts/font = ExtResource("4_55csc")
+theme_override_font_sizes/font_size = 48
+text = "BACK"
+
+[connection signal="pressed" from="CanvasLayer/Global/MenuPrincipal/ShortNight" to="." method="_on_short_night_pressed"]
+[connection signal="pressed" from="CanvasLayer/Global/MenuPrincipal/LongNight" to="." method="_on_long_night_pressed"]
+[connection signal="pressed" from="CanvasLayer/Global/MenuPrincipal/instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="CanvasLayer/Global/Instructions/Panel/Back" to="." method="_on_back_pressed"]

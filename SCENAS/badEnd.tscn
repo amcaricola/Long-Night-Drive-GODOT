@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj3insbl3gl0r"]
+
+[ext_resource type="Texture2D" uid="uid://cbxeblph0yj4j" path="res://SPRITES/black-and-white-2603731_1280.jpg" id="1_31u0v"]
+[ext_resource type="AudioStream" uid="uid://hrn8afpxoqjp" path="res://AUDIO/Chasing.mp3" id="1_hkfi6"]
+[ext_resource type="Texture2D" uid="uid://6xttxc5wdjn4" path="res://SPRITES/WPINICIO.png" id="1_x1g81"]
+[ext_resource type="FontFile" uid="uid://cd6ao54auh1g3" path="res://Themes/Fonts/8bitOperatorPlus8-Regular.ttf" id="3_b7cjw"]
+[ext_resource type="PackedScene" uid="uid://bgdyo5xwldd65" path="res://PREFAB/TryAgainButton.tscn" id="4_87jih"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_hkfi6")
+volume_db = -5.0
+pitch_scale = 0.4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_x1g81")
+
+[node name="screamer" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+offset_left = -260.0
+offset_top = -8.0
+offset_right = 1020.0
+offset_bottom = 1026.0
+texture = ExtResource("1_31u0v")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="text" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -357.0
+offset_right = 276.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_b7cjw")
+theme_override_font_sizes/font_size = 48
+text = "I couldn't beat it, couldn't escape from it, night after night darkness surrounds me.
+
+At the end, all i only did was run and escape from reality.
+
+The only i got, was being absorbed into darkness.
+
+I hope they can forgive me..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 81.0
+offset_right = 20.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_b7cjw")
+theme_override_font_sizes/font_size = 78
+text = "BAD END!"
+uppercase = true
+
+[node name="TryAgain" parent="Panel" node_paths=PackedStringArray("audio") instance=ExtResource("4_87jih")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -164.0
+offset_right = 300.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+audio = NodePath("../../AudioStreamPlayer")

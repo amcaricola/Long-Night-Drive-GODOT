@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0oy7yieb5dck"]
+
+[ext_resource type="Texture2D" uid="uid://7wi10edkty0w" path="res://SPRITES/sunset-110305_1280.jpg" id="1_8bt1v"]
+[ext_resource type="FontFile" uid="uid://cd6ao54auh1g3" path="res://Themes/Fonts/8bitOperatorPlus8-Regular.ttf" id="2_eq1am"]
+[ext_resource type="PackedScene" uid="uid://bgdyo5xwldd65" path="res://PREFAB/TryAgainButton.tscn" id="3_y6c51"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8bt1v")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="text" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -357.0
+offset_right = 276.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_eq1am")
+theme_override_font_sizes/font_size = 48
+text = "My demons will always follow me, even when the sun is in front of me.
+
+Facing them and defeating them day and night, is what moves my being.
+
+This time will serve as a consolation for them, and as a reflection for me.
+
+I hope they can forgive me..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 81.0
+offset_right = 20.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_eq1am")
+theme_override_font_sizes/font_size = 78
+text = "Good END!"
+uppercase = true
+
+[node name="TryAgain" parent="Panel2" instance=ExtResource("3_y6c51")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -164.0
+offset_right = 300.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Thanks for Playing"

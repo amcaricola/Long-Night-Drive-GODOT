@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chfddyifoyd16"
+path="res://.godot/imported/colosal monster.wav-dc02146552fbe2438bd118ec345e804e.sample"
+
+[deps]
+
+source_file="res://AUDIO/colosal monster.wav"
+dest_files=["res://.godot/imported/colosal monster.wav-dc02146552fbe2438bd118ec345e804e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
